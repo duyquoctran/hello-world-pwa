@@ -1,0 +1,10 @@
+curl -X POST -H "Authorization: key=AAAAohAu2OM:APA91bHz4YGMZHxHChDHUgUfGf2QpUwExweBGbwvgINyJLdUqK9d_3eMRA33IlYckWzKFAvWCKrCuy8BKPoLAB9GsMq96hHk8cyahM1xWa_tqVD-tu-ZTNcQ-4aPRd7iefOPxIo9X7Tt" -H "Content-Type: application/json" -d 
+'{ "notification":
+    {   "title": "Welcome to Duy Tran Demo PWA App", 
+        "body": "Nice to meet you ^^", 
+    }, 
+        "to": "c049Abul8DQ:APA91bEa9GzCN2by9BOcRcnbh0l6WS9IW_46jvLpwBF-zELLH_RhSa_3R4bsRU9L107cK_S-uRifNPJFwEZ95kpO7ErkKcZAxp8-m_sq7NuFB72CL1VbSh7S9xgsEB2mFqY3SyELxWZQ" 
+}' "https://fcm.googleapis.com/fcm/send"
+
+
+# curl -X POST -H "Authorization: key=AAAAohAu2OM:APA91bHz4YGMZHxHChDHUgUfGf2QpUwExweBGbwvgINyJLdUqK9d_3eMRA33IlYckWzKFAvWCKrCuy8BKPoLAB9GsMq96hHk8cyahM1xWa_tqVD-tu-ZTNcQ-4aPRd7iefOPxIo9X7Tt" -H "Content-Type: application/json" -d '{ "notification": { "title": "Welcome to Duy Tran Demo PWA App", "body": "Nice to meet you ^^", }, "to": "emM_3dlNVIQ:APA91bFUOjipkZOWsvu-FO4EIM-B6LLWWDQ5E7M2kcz7GB7v11rRkVZ4VzOmm4QcDPu-lgnG_Ktoxy3ynNNIntGxFgUHjEsnCxWcWzbMd9QVrcT_H67Gl4O-hidXozbcWs2MuXrtKkMw" }' "https://fcm.googleapis.com/fcm/send"

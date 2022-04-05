@@ -11,6 +11,14 @@
   </head>
   <body>
     <h1 class="vertical-container">Welcome to Duy Tran Demo PWA App</h1>
+    
+    <div class="center">
+      <img src="" id="img_1"/>
+      <img src="" id="img_2"/>
+      <img src="" id="img_3"/>
+    </div>
+
+
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -47,6 +55,45 @@
       .catch(function(err) {
         console.log('Unable to get permission to notify.', err);
       })
+    </script>
+    <script>
+      function httpGetAsync(url, resolve) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) resolve(xmlHttp);
+        };
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+      }
+
+      const promise1 = new Promise((resolve,reject) => {
+        httpGetAsync('https://picsum.photos/200/300', resolve);
+      });
+
+      const promise2 = new Promise((resolve,reject) => {
+        httpGetAsync('https://picsum.photos/200/300', resolve);
+      });
+
+      const promise3 = new Promise((resolve,reject) => {
+        httpGetAsync('https://picsum.photos/200/300', resolve);
+      });
+
+      const executeAsync = async () => {
+        try {
+          const response1 = await promise1;
+          document.getElementById('img_1').setAttribute('src', response1.responseURL);
+
+          const response2 = await promise2;
+          document.getElementById('img_2').setAttribute('src', response2.responseURL);
+
+          const response3 = await promise3;
+          document.getElementById('img_3').setAttribute('src', response3.responseURL);
+        } catch(err) {
+          console.log( {err} );
+        }
+      }
+
+      executeAsync();
     </script>
   </body>
 </html>

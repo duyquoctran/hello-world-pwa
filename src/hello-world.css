@@ -1,6 +1,10 @@
 body {
-  background-color: #FF9800;
+  background-color: white;
   color: black;
+}
+
+.center {
+  text-align: center;
 }
 
 .vertical-container {

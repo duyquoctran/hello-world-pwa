@@ -15,7 +15,7 @@ firebase.initializeApp(config);
 const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
-	const title = 'Hello World';
+	const title = 'Welcome to Demo PWA App';
 	const options = {
 		body: payload.data.body
 	};
