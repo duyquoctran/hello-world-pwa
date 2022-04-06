@@ -11,6 +11,16 @@
   </head>
   <body>
     <h1 class="vertical-container">Welcome to Duy Tran Demo PWA App</h1>
+
+    <div class="center">
+      <button class="button-82-pushable" role="button" onclick="clickButton()">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text">
+          RELOAD
+        </span>
+      </button>
+    </div>
     
     <div class="center">
       <img src="" id="img_1"/>
@@ -94,6 +104,12 @@
       }
 
       executeAsync();
+    </script>
+    <script>
+      function clickButton(){
+        executeAsync();
+        location.reload(); 
+      }
     </script>
   </body>
 </html>
