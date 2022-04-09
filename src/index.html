@@ -10,7 +10,7 @@
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
-    <h1 class="vertical-container">Welcome to Duy Tran Demo PWA App</h1>
+    <h1 class="vertical-container">Welcome to Duy Tran's PWA Demo</h1>
 
     <div class="center">
       <button class="button-82-pushable" role="button" onclick="clickButton()">
@@ -22,11 +22,9 @@
       </button>
     </div>
     
-    <div class="center">
-      <img src="" id="img_1"/>
-      <img src="" id="img_2"/>
-      <img src="" id="img_3"/>
-    </div>
+    <img src="" alt="You're offline. Check your connection." id="img_1"/>
+    <!-- <img src="" id="img_2"/>
+    <img src="" id="img_3"/> -->
 
 
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
@@ -80,24 +78,24 @@
         httpGetAsync('https://picsum.photos/200/300', resolve);
       });
 
-      const promise2 = new Promise((resolve,reject) => {
-        httpGetAsync('https://picsum.photos/200/300', resolve);
-      });
+      // const promise2 = new Promise((resolve,reject) => {
+      //   httpGetAsync('https://picsum.photos/200/300', resolve);
+      // });
 
-      const promise3 = new Promise((resolve,reject) => {
-        httpGetAsync('https://picsum.photos/200/300', resolve);
-      });
+      // const promise3 = new Promise((resolve,reject) => {
+      //   httpGetAsync('https://picsum.photos/200/300', resolve);
+      // });
 
       const executeAsync = async () => {
         try {
           const response1 = await promise1;
           document.getElementById('img_1').setAttribute('src', response1.responseURL);
 
-          const response2 = await promise2;
-          document.getElementById('img_2').setAttribute('src', response2.responseURL);
+          // const response2 = await promise2;
+          // document.getElementById('img_2').setAttribute('src', response2.responseURL);
 
-          const response3 = await promise3;
-          document.getElementById('img_3').setAttribute('src', response3.responseURL);
+          // const response3 = await promise3;
+          // document.getElementById('img_3').setAttribute('src', response3.responseURL);
         } catch(err) {
           console.log( {err} );
         }
