@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#008000"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#008000" />
     <title>My hello world page</title>
-    <link rel="stylesheet" type="text/css" href="hello-world.css" media="all">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="hello-world.css" media="all" />
+    <link rel="manifest" href="manifest.json" />
   </head>
   <body>
     <h1 class="vertical-container">Welcome to Duy Tran's PWA Demo</h1>
@@ -16,16 +16,13 @@
       <button class="button-82-pushable" role="button" onclick="clickButton()">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
-        <span class="button-82-front text">
-          RELOAD
-        </span>
+        <span class="button-82-front text"> RELOAD </span>
       </button>
     </div>
-    
-    <img src="" alt="You're offline. Check your connection." id="img_1"/>
+
+    <img src="" alt="You're offline. Check your connection." id="img_1" />
     <!-- <img src="" id="img_2"/>
     <img src="" id="img_3"/> -->
-
 
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
     <script>
@@ -37,45 +34,46 @@
         storageBucket: "fir-pwa-fd3e4.appspot.com",
         messagingSenderId: "696056207587",
         appId: "1:696056207587:web:e2d3f830dff7c703a44dd6",
-        measurementId: "G-XYPJ6DTKMK"
+        measurementId: "G-XYPJ6DTKMK",
       };
       firebase.initializeApp(config);
     </script>
     <script>
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function() {
-                console.log('Service Worker Registered');
-          });
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js").then(function () {
+          console.log("Service Worker Registered");
+        });
       }
     </script>
     <script>
       const messaging = firebase.messaging();
 
-      messaging.requestPermission()
-      .then(function() {
-        console.log('Notification permission granted.');
-        return messaging.getToken();
-      })
-      .then(function(token) {
-        console.log(token);
-      })
-      .catch(function(err) {
-        console.log('Unable to get permission to notify.', err);
-      })
+      messaging
+        .requestPermission()
+        .then(function () {
+          console.log("Notification permission granted.");
+          return messaging.getToken();
+        })
+        .then(function (token) {
+          console.log(token);
+        })
+        .catch(function (err) {
+          console.log("Unable to get permission to notify.", err);
+        });
     </script>
     <script>
       function httpGetAsync(url, resolve) {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
-          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) resolve(xmlHttp);
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            resolve(xmlHttp);
         };
         xmlHttp.open("GET", url, true);
         xmlHttp.send(null);
       }
 
-      const promise1 = new Promise((resolve,reject) => {
-        httpGetAsync('https://picsum.photos/200/300', resolve);
+      const promise1 = new Promise((resolve, reject) => {
+        httpGetAsync("https://picsum.photos/200/300", resolve);
       });
 
       // const promise2 = new Promise((resolve,reject) => {
@@ -89,24 +87,26 @@
       const executeAsync = async () => {
         try {
           const response1 = await promise1;
-          document.getElementById('img_1').setAttribute('src', response1.responseURL);
+          document
+            .getElementById("img_1")
+            .setAttribute("src", response1.responseURL);
 
           // const response2 = await promise2;
           // document.getElementById('img_2').setAttribute('src', response2.responseURL);
 
           // const response3 = await promise3;
           // document.getElementById('img_3').setAttribute('src', response3.responseURL);
-        } catch(err) {
-          console.log( {err} );
+        } catch (err) {
+          console.log({ err });
         }
-      }
+      };
 
       executeAsync();
     </script>
     <script>
-      function clickButton(){
+      function clickButton() {
         executeAsync();
-        location.reload(); 
+        location.reload();
       }
     </script>
   </body>
