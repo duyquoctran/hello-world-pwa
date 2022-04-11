@@ -11,8 +11,46 @@
   </head>
   <body>
     <h1 class="vertical-container">Welcome to Duy Tran's PWA Demo</h1>
+    <div id="wrap">
+      <div id="body">
+        <div class="game_area">
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div id="a" class="block"></div>
+          <div id="line0" class="line"></div>
+          <div id="line1" class="line"></div>
+          <div id="line2" class="line"></div>
+          <div id="line3" class="line"></div>
+        </div>
+      </div>
+      <div id="start_screen">
+        <div id="select_box">
+          <div id="selectO">
+            <div class="o"></div>
+          </div>
+          <div id="selectX">
+            <div class="x"></div>
+          </div>
+          <div class="info_bubble" id="info_1">first</div>
+          <div class="info_bubble" id="info_2">choose one</div>
+        </div>
+      </div>
+      <div id="end_screen">
+        <div id="end_box">
+          <div id="end_info"></div>
+          <div class="circle"></div>
+          <div class="info_bubble" id="btn_restart">restart</div>
+        </div>
+      </div>
+    </div>
 
-    <div class="center">
+    <!-- <div class="center">
       <button class="button-82-pushable" role="button" onclick="clickButton()">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
@@ -20,11 +58,12 @@
       </button>
     </div>
 
-    <img src="" alt="You're offline. Check your connection." id="img_1" />
-    <!-- <img src="" id="img_2"/>
-    <img src="" id="img_3"/> -->
+    <img src="" alt="You're offline. Check your connection." id="img_1" /> -->
+
 
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+    <script src="caro-game.js"></script>
+
     <script>
       // Initialize Firebase
       var config = {
@@ -38,6 +77,7 @@
       };
       firebase.initializeApp(config);
     </script>
+
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/sw.js").then(function () {
@@ -45,6 +85,7 @@
         });
       }
     </script>
+
     <script>
       const messaging = firebase.messaging();
 
@@ -61,7 +102,8 @@
           console.log("Unable to get permission to notify.", err);
         });
     </script>
-    <script>
+
+    <!-- <script>
       function httpGetAsync(url, resolve) {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
@@ -73,16 +115,8 @@
       }
 
       const promise1 = new Promise((resolve, reject) => {
-        httpGetAsync("https://picsum.photos/200/300", resolve);
+        httpGetAsync("https://picsum.photos/2000/1000", resolve);
       });
-
-      // const promise2 = new Promise((resolve,reject) => {
-      //   httpGetAsync('https://picsum.photos/200/300', resolve);
-      // });
-
-      // const promise3 = new Promise((resolve,reject) => {
-      //   httpGetAsync('https://picsum.photos/200/300', resolve);
-      // });
 
       const executeAsync = async () => {
         try {
@@ -91,11 +125,6 @@
             .getElementById("img_1")
             .setAttribute("src", response1.responseURL);
 
-          // const response2 = await promise2;
-          // document.getElementById('img_2').setAttribute('src', response2.responseURL);
-
-          // const response3 = await promise3;
-          // document.getElementById('img_3').setAttribute('src', response3.responseURL);
         } catch (err) {
           console.log({ err });
         }
@@ -106,8 +135,8 @@
     <script>
       function clickButton() {
         executeAsync();
-        location.reload();
+        document.getElementById("img_1").contentWindow.location.reload(true);
       }
-    </script>
+    </script> -->
   </body>
 </html>

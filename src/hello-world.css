@@ -3,7 +3,7 @@ body {
   color: black;
 }
 
-.center {
+/* .center {
   text-align: center;
   margin-bottom: 50px;
 }
@@ -12,10 +12,19 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
 }
 
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+} */
+
 .vertical-container {
-  height: 300px;
+  color: #488fda;
+  height: 100px;
   display: -webkit-flex;
   display:         flex;
   -webkit-align-items: center;
@@ -29,7 +38,7 @@ h1.vertical-container {
 }
 
 /* CSS */
-.button-82-pushable {
+/* .button-82-pushable {
   position: relative;
   border: none;
   background: transparent;
@@ -129,4 +138,225 @@ h1.vertical-container {
 
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
+} */
+
+
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dosis Regular"), local("Dosis-Regular"),
+    url(http://themes.googleusercontent.com/static/fonts/dosis/v1/xIAtSaglM8LZOYdGmG1JqQ.woff)
+      format("woff");
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  font-family: "Dosis", sans-serif;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+#wrap {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+#body .game_area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  margin-left: -240px;
+  margin-top: -240px;
+  border-radius: 10px;
+  background: #fcfcfc;
+  box-shadow: 0px 0px 8px #777 inset;
+}
+#body .block {
+  position: relative;
+  float: left;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+}
+#body .line {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #dedede;
+}
+#body #line0 {
+  width: 450px;
+  top: 155px;
+  left: 15px;
+}
+#body #line1 {
+  width: 450px;
+  top: 315px;
+  left: 15px;
+}
+#body #line2 {
+  height: 450px;
+  left: 157px;
+  top: 15px;
+}
+#body #line3 {
+  height: 450px;
+  left: 317px;
+  top: 15px;
+}
+
+.o {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -60px;
+  margin-top: -60px;
+  border: 10px solid #4ad52e;
+  border-radius: 100px;
+}
+.x {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+  width: 120px;
+  height: 120px;
+}
+.x:before {
+  position: absolute;
+  top: -20px;
+  left: 55px;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 160px;
+  background: #488fda;
+  border-radius: 5px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+}
+.x:after {
+  position: absolute;
+  top: -20px;
+  left: 55px;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 160px;
+  background: #488fda;
+  border-radius: 5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+
+#start_screen,
+#end_screen {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+#select_box,
+#end_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 160px;
+  padding: 20px;
+  margin-left: -190px;
+  margin-top: -100px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #666;
+}
+#select_box .current {
+  border-bottom: 5px solid #ddd;
+}
+#selectO,
+#selectX {
+  position: relative;
+  float: left;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+}
+#selectO {
+  margin-right: 20px;
+}
+.info_bubble {
+  position: absolute;
+  padding: 0 15px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+.info_bubble:before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: "";
+  border: 15px solid transparent;
+}
+#info_1 {
+  right: 0px;
+  top: -100px;
+}
+#info_1:before {
+  left: 20px;
+  bottom: -30px;
+  border-top-color: #fff;
+}
+#info_2 {
+  left: 0px;
+  bottom: -100px;
+}
+#info_2:before {
+  top: -30px;
+  right: 80px;
+  border-bottom-color: #fff;
+}
+
+#end_screen {
+  display: none;
+}
+#end_box #end_info {
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 160px;
+}
+#end_box .circle {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -60px;
+  border: 10px solid #feb323;
+  border-radius: 100px;
+}
+#end_screen #btn_restart {
+  right: -240px;
+  top: 66px;
+  cursor: pointer;
 }
