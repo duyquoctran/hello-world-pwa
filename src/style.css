@@ -170,10 +170,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 480px;
-  height: 480px;
-  margin-left: -240px;
-  margin-top: -240px;
+  width: 640px;
+  height: 640px;
+  margin-left: -320px;
+  margin-top: -320px;
   border-radius: 10px;
   background: #fcfcfc;
   box-shadow: 0px 0px 8px #777 inset;
@@ -193,23 +193,33 @@ body {
   background: #dedede;
 }
 #body #line0 {
-  width: 450px;
+  width: 600px;
   top: 155px;
   left: 15px;
 }
 #body #line1 {
-  width: 450px;
+  width: 600px;
   top: 315px;
   left: 15px;
 }
+#body #line4 {
+  width: 600px;
+  top: 475px;
+  left: 15px;
+}
 #body #line2 {
-  height: 450px;
+  height: 600px;
   left: 157px;
   top: 15px;
 }
 #body #line3 {
-  height: 450px;
+  height: 600px;
   left: 317px;
+  top: 15px;
+}
+#body #line5 {
+  height: 600px;
+  left: 477px;
   top: 15px;
 }
 

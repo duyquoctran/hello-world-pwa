@@ -139,16 +139,18 @@ function GameCtrl(_oUi) {
 
   var init = function () {
       oUi = _oUi;
-      (aChessboard = [0, 0, 0, 0, 0, 0, 0, 0, 0]),
+      (aChessboard = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
         (aWinCondition = [
-          [0, 1, 2],
-          [3, 4, 5],
-          [6, 7, 8],
-          [0, 3, 6],
-          [1, 4, 7],
-          [2, 5, 8],
-          [0, 4, 8],
-          [2, 4, 6],
+          [0, 1, 2, 3],
+          [4, 5, 6 ,7],
+          [8, 9, 10, 11],
+          [12, 13, 14, 15],
+          [0, 5, 10, 15],
+          [3, 6, 9, 12],
+          [0, 4, 8, 12],
+          [1, 5, 9, 13],
+          [2, 6, 10, 14],
+          [3, 7, 11, 15],
         ]);
     },
     checkOver = function () {
@@ -156,8 +158,9 @@ function GameCtrl(_oUi) {
         if (
           aChessboard[aWinCondition[i][0]] +
             aChessboard[aWinCondition[i][1]] +
-            aChessboard[aWinCondition[i][2]] ==
-          3
+            aChessboard[aWinCondition[i][2]] +
+            aChessboard[aWinCondition[i][3]] ==
+          4
         ) {
           winner = "ai";
           oUi.endGame();
@@ -166,8 +169,9 @@ function GameCtrl(_oUi) {
         if (
           aChessboard[aWinCondition[i][0]] +
             aChessboard[aWinCondition[i][1]] +
-            aChessboard[aWinCondition[i][2]] ==
-          -3
+            aChessboard[aWinCondition[i][2]] +
+            aChessboard[aWinCondition[i][3]] ==
+          -4
         ) {
           winner = "player";
           oUi.endGame();
@@ -178,7 +182,7 @@ function GameCtrl(_oUi) {
       for (var i = aWinCondition.length - 1; i >= 0; i--) {
         if (aChessboard[i] != 0) count++;
       }
-      if (count == 8) {
+      if (count == 10) {
         winner = "no";
         oUi.endGame();
         return true;
@@ -190,16 +194,17 @@ function GameCtrl(_oUi) {
         var nMax = null,
           nMaxSub,
           aChessboards = new Array();
-        for (var i = 8; i >= 0; i--) {
-          for (var i2 = 8; i2 >= 0; i2--) {
+        for (var i = 16; i >= 0; i--) {
+          for (var i2 = 16; i2 >= 0; i2--) {
             if (aChessboard[i2] != 0) continue;
             aChessboard[i2] = 1;
             for (var k = aWinCondition.length - 1; k >= 0; k--) {
               if (
                 aChessboard[aWinCondition[k][0]] +
                   aChessboard[aWinCondition[k][1]] +
-                  aChessboard[aWinCondition[k][2]] ==
-                3
+                  aChessboard[aWinCondition[k][2]] +
+                  aChessboard[aWinCondition[k][3]] ==
+                4
               ) {
                 console.log(i2);
                 oUi.draw("ai", i2);
@@ -216,15 +221,16 @@ function GameCtrl(_oUi) {
           var aTempCb = aChessboard.concat();
           var nMin = null;
           var aTempCbs = new Array();
-          for (var j = 8; j >= 0; j--) {
+          for (var j = 16; j >= 0; j--) {
             if (aTempCb[j] != 0) continue;
             aTempCb[j] = -1;
             for (var k = aWinCondition.length - 1; k >= 0; k--) {
               if (
                 aTempCb[aWinCondition[k][0]] +
                   aTempCb[aWinCondition[k][1]] +
-                  aTempCb[aWinCondition[k][2]] ==
-                -3
+                  aTempCb[aWinCondition[k][2]] +
+                  aTempCb[aWinCondition[k][3]] ==
+                -4
               ) {
                 aChessboard[j] = 1;
                 aChessboard[i] = 0;
@@ -238,7 +244,7 @@ function GameCtrl(_oUi) {
               nMin2 = 0,
               aTempCbMax = aTempCb.concat(),
               aTempCbMin = aTempCb.concat();
-            for (var l = 8; l >= 0; l--) {
+            for (var l = 16; l >= 0; l--) {
               if (aTempCbMax[l] == 0) {
                 aTempCbMax[l] = 1;
               }
@@ -250,15 +256,18 @@ function GameCtrl(_oUi) {
               if (
                 aTempCbMax[aWinCondition[m][0]] +
                   aTempCbMax[aWinCondition[m][1]] +
-                  aTempCbMax[aWinCondition[m][2]] ==
-                3
-              )
+                  aTempCbMax[aWinCondition[m][2]] +
+                  aTempCbMax[aWinCondition[m][3]] ==
+                4
+              ){
                 nMax2++;
+              }
               if (
                 aTempCbMin[aWinCondition[m][0]] +
                   aTempCbMin[aWinCondition[m][1]] +
-                  aTempCbMin[aWinCondition[m][2]] ==
-                -3
+                  aTempCbMin[aWinCondition[m][2]] +
+                  aTempCbMin[aWinCondition[m][3]] ==
+                -4
               ) {
                 nMin2++;
               }
@@ -294,7 +303,7 @@ function GameCtrl(_oUi) {
 
   return {
     startGame: function () {
-      aChessboard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+      aChessboard = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       oUi.startGame();
     },
     nextStep: function (nPlayerStep) {
